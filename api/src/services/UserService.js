@@ -1,11 +1,15 @@
 import User from '../models/User.js';
 import { generateUUID } from '../utils/Helpers.js';
+import mongoose from 'mongoose';
 
 export default class UserService {
-    static async createUser (name, email, password) {
+    static createUser(name, email, password) {
         const uuid = generateUUID();
-        const user = new User({ uuid, name, email, password });
-        await user.save();
-        return user;
+        return new User({ uuid, name, email, password });
+    }
+
+    static async emailAlreadyExists(email) {
+        const user = await User.findOne({ email });
+        return !!user;
     }
 }

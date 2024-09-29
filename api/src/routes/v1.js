@@ -1,5 +1,4 @@
 import express from 'express';
-import { CREATE_USER_VALIDATION } from '../validations/UserValidations.js';
 import UserController from '../controllers/UserController.js';
 
 const v1 = express.Router();
@@ -12,6 +11,6 @@ v1.get('/status', (req, res, next) => {
 /**
  * User related routes
  */
-v1.post('/user', CREATE_USER_VALIDATION, UserController.createUser);
+v1.post('/user', UserController.createUser);
 
 export default v1;
