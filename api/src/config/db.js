@@ -7,8 +7,7 @@ class MongoDB {
             if (!MONGO_URI) {
                 throw new Error('MONGO_URI is required');
             }
-            const res = await mongoose.connect(process.env.MONGO_URI);
-            console.log('Connected to MongoDB');
+            await mongoose.connect(process.env.MONGO_URI);
         } catch (error) {
             console.error(error);
             process.exit(1);

@@ -1,15 +1,23 @@
 import User from '../models/User.js';
 import { generateUUID } from '../utils/Helpers.js';
-import mongoose from 'mongoose';
+import bcryptjs from 'bcryptjs';
 
 export default class UserService {
-    static createUser(name, email, password) {
+    static async createUser(name, email, password) {
         const uuid = generateUUID();
-        return new User({ uuid, name, email, password });
+        const user = new User({ uuid, name, email, password });
+		const salt = await bcryptjs.genSalt();
+        user.password = await bcryptjs.hash(password, salt);
+		await user.save();
+		return user;
     }
 
     static async emailAlreadyExists(email) {
         const user = await User.findOne({ email });
         return !!user;
     }
+
+	static async getUsers() {
+		return await User.find({});
+	}
 }
