@@ -4,7 +4,6 @@ import { MongoDB } from './config/db.js';
 import passport from './auth/passportConfig.js';
 import http from 'http';
 import { Server } from 'socket.io';
-import WebsocketController from './controllers/WebsocketController.js';
 
 const createApp = () => {
     const app = express();
