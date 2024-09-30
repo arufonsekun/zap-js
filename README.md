@@ -15,6 +15,7 @@ docker run --name my-mongo -d -p 27017:27017 mongo
 ```bash
 cd api
 npm install
+cp .env.example .env
 npm run start
 ```
 
