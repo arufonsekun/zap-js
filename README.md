@@ -28,3 +28,9 @@ npm run start
 4. Acesse [http://localhost:3000](http://localhost:3000), você deverá ver a seguinte página:
 
 ![image](https://github.com/user-attachments/assets/04ada4fc-fc58-4551-9fdb-649beea3ed87)
+
+
+### Referências
+
+* [Flowbite](https://flowbite.com/blocks/marketing/login/)
+* [Tailwind CSS Chat Web By dhaifullah](https://www.creative-tim.com/twcomponents/component/chat-web-tailwind)
